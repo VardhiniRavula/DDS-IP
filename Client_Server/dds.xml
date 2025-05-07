@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dds xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+  <profiles>
+    <participant profile_name="VehicleParticipant" is_default_profile="true">
+      <domainId>0</domainId>
+      <name>SpeedCarNode</name>
+    </participant>
+
+    <publisher profile_name="Server"/>
+
+    <subscriber profile_name="Client"/>
+
+    <data_writer profile_name="SpeedWriter">
+      <topic>
+        <name>SpeedTopic</name>
+        <dataType>SpeedData</dataType>
+      </topic>
+      <historyQos>
+        <kind>KEEP_LAST</kind>
+        <depth>10</depth>
+      </historyQos>
+      <reliabilityQos>
+        <kind>RELIABLE</kind>
+      </reliabilityQos>
+    </data_writer>
+
+    <data_reader profile_name="SpeedReader">
+      <topic>
+        <name>SpeedTopic</name>
+        <dataType>SpeedData</dataType>
+      </topic>
+      <historyQos>
+        <kind>KEEP_LAST</kind>
+        <depth>10</depth>
+      </historyQos>
+      <reliabilityQos>
+        <kind>RELIABLE</kind>
+      </reliabilityQos>
+    </data_reader>
+  </profiles>
+</dds>
